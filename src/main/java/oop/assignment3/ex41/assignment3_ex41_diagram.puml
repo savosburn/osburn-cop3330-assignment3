@@ -1,3 +1,29 @@
 @startuml
 
+class Application {
+    FILE infile = in.txt
+}
+
+class CreateList {
+
+    + readLine(File)
+    - addName(ArrayList) // adds to ArrayList
+}
+
+class Calculations {
+    + sortByLastName(ArrayList)
+    + totalNames(ArrayList)
+}
+
+class generateOutput {
+    StringBuilder output;
+
+    + createOutputString
+    + printToFile
+    + printToConsole
+}
+
+Application o--> CreateList
+CreateList o--> Calculations
+Calculations o--> generateOutput
 @enduml
