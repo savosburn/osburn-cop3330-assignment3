@@ -63,10 +63,10 @@ public class App {
         namesList = calculations.alphabetize(namesList);
         int size = calculations.getSize(namesList);
 
-        System.out.print(size);
+        //System.out.print(size);
 
 
-        output.consoleString(size, namesList);
+        System.out.print(output.consoleString(size, namesList));
         output.toFile(namesList, outputFile, size);
 
 

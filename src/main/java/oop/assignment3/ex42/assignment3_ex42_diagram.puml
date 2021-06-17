@@ -1,3 +1,41 @@
 @startuml
+class Application{
+    String infile
+    String outfile
+
+    ArrayList<String> names
+
+}
+
+class ReadFile {
+    + readLine(infile)
+    + addNameToArrayList(line)
+}
+
+class Parser {
+
+    + parseLine(ArrayList<String> list)
+
+
+}
+
+class GenerateOutput {
+
+    + Print to outfile
+    + Print to console
+
+}
+
+class GenerateTable {
+     + generateTable() // utilize header, divider, and table
+    + generateHeader()
+    + generateDivider()
+    + generateData();
+}
+
+Application o--> ReadFile
+ReadFile o-->Parser
+Parser o-> GenerateTable
+GenerateTable o-->GenerateOutput
 
 @enduml
