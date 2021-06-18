@@ -1,3 +1,28 @@
 @startuml
 
+class Application {
+    String infile
+
+}
+
+class readInput {
+    + readFile(infile)
+    + create ArrayList()
+}
+
+class findFrequency {
+    + int[] freqArray
+
+    + uniqueWords(ArrayList)
+    + findFreq(uniqueWords, ArrayList)
+}
+
+class displayOutput {
+    + createOutputString
+    + displayOutput
+}
+
+Application o--> readInput
+readInput o--> findFrequency
+findFrequency o--> displayOutput
 @enduml
