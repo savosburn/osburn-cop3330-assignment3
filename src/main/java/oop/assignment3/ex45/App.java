@@ -1,6 +1,6 @@
 /*
  *  UCF COP3330 Summer 2021 Assignment 3 Solution
- *  Copyright 2021 first_name last_name
+ *  Copyright 2021 Savannah Osburn
  */
 
 package oop.assignment3.ex45;
@@ -35,22 +35,13 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        // Prompt for the name of the output file
-        // read in the file
-        // create an array list of every word
-        // loop through the list and find the word "utilize"
-        // replace utilize with use
-        // reprint the paragraph to the output file
-        // reprint the paragraph to the console
-
-        App myApp = new App();
         BuildParagraph paragraphBuilder = new BuildParagraph();
         WordFinder finder = new WordFinder();
         GenerateOutput output = new GenerateOutput();
 
         String infile = "exercise45_input.txt";
 
-        ArrayList<String> paragraph = new ArrayList<>();
+        ArrayList<String> paragraph;
 
         paragraph = paragraphBuilder.readFile(infile);
         paragraph = finder.modifyList(paragraph);
@@ -58,12 +49,6 @@ public class App {
         String outfile = output.getOutfile();
         output.toConsole(output.createOutputString(paragraph), outfile);
 
-
         System.out.print(output.createOutputString(paragraph));
-        //System.out.print(paragraph);
-
-
-
-
     }
 }
