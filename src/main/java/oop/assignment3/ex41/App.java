@@ -1,6 +1,6 @@
 /*
  *  UCF COP3330 Summer 2021 Assignment 3 Solution
- *  Copyright 2021 first_name last_name
+ *  Copyright 2021 Savannah Osburn
  */
 
 package oop.assignment3.ex41;
@@ -43,45 +43,23 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        App myApp = new App();
         CreateList list = new CreateList();
         Calculations calculations = new Calculations();
         GenerateOutput output = new GenerateOutput();
 
-        //System.out.print(System. getProperty("user. dir"));
-
-        // Declare the file parameter
-        String fileName = "C:/Users/savos/Documents/UCF Fall 2021/COP3330 - Object Oriented Programming/osburn-cop3330-assignment3/src/main/java/oop/assignment3/ex41/exercise41_input.txt";
-        String outputFile = "exercise41_output.txt";
-        //System.out.print(System. getProperty("user. dir"));
-
+        // Declare variables
         ArrayList<String> namesList;
+        int size;
 
+        String fileName = "exercise41_input.txt";
+        String outputFile = "exercise41_output.txt";
 
-        namesList = list.readLine(fileName);
+        // Sort
+        namesList = calculations.alphabetize(list.readLine(fileName));
+        size = calculations.getSize(namesList);
 
-        namesList = calculations.alphabetize(namesList);
-        int size = calculations.getSize(namesList);
-
-        //System.out.print(size);
-
-
+        // Output
         System.out.print(output.consoleString(size, namesList));
         output.toFile(namesList, outputFile, size);
-
-
-
-
-
-        // read from file           // CreateList
-        // add name to ArrayList
-
-        // alphabetize by last name     // Generate Output
-        // get total number of names
-
-        // Create output string
-        // print to output file         // Print to output file
-            // create output file
-            //
     }
 }

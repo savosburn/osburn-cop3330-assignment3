@@ -1,29 +1,37 @@
 @startuml
 
-class Application {
-    FILE infile = in.txt
+class App{
+    ArrayList<String> namesList
+    String fileName
+    String outputFile
+    int size
+
+    sort list
+    print output
 }
 
 class CreateList {
 
     + readLine(File)
-    - addName(ArrayList) // adds to ArrayList
+    - addName(ArrayList)
 }
 
 class Calculations {
-    + sortByLastName(ArrayList)
-    + totalNames(ArrayList)
+    + alphabetize(ArrayList)
+    + getSize(ArrayList)
 }
 
 class generateOutput {
-    StringBuilder output;
+    + toFile(ArrayList, outFile, int num)
+    + writeToFile(outfile, num, nameList) // helper for toFIle()
+    + consoleString(numNames, names)
 
-    + createOutputString
-    + printToFile
-    + printToConsole
+    + numNames(names) // header
+    + divider()
+    + list(names) // String of entire lsit
 }
 
-Application o--> CreateList
-CreateList o--> Calculations
+App o--> CreateList
+CreateList o-> Calculations
 Calculations o--> generateOutput
 @enduml
