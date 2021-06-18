@@ -1,3 +1,16 @@
 @startuml
+class Application{
+    String siteName;
+    String authorName;
 
+    + javascriptFolder()
+    + cssFolder()
+}
+
+class CreateFile {
+    + generateHtmlFile(name, author)
+    + printOutput();
+}
+
+Application o->CreateFile
 @enduml
