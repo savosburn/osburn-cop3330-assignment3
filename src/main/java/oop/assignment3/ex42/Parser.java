@@ -31,10 +31,6 @@ public class Parser {
 
         }
 
-        for (int j = 0; j < 7; j++) {
-            System.out.print(employees.get(j).get("lastNames"));
-        }
-
         return employees;
     }
 

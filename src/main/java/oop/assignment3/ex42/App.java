@@ -47,6 +47,8 @@ public class App {
         App myApp = new App();
         CreateList list = new CreateList();
         Parser parser = new Parser();
+        GenerateTable outputTable = new GenerateTable();
+        Output output = new Output();
 
         String infile = "exercise42_input.txt";
         String outfile = "exercise42_output.txt";
@@ -59,6 +61,14 @@ public class App {
         //System.out.print(names.get(0));
 
         employees = parser.tableData(names);
+
+        String table = outputTable.generateTable(employees);
+
+        output.printTxt(outfile, table);
+
+        System.out.print(table);
+
+
 
         //System.out.print(employees.get(0).get("lastNames"));
 
