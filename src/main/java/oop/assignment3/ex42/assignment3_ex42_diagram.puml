@@ -1,41 +1,42 @@
 @startuml
-class Application{
+class App{
     String infile
     String outfile
-
     ArrayList<String> names
+    ArrayList<HashMap<String, String> employees
+
+    // read in all employees
+    // parse all the strings
+    // generate output
+        // print to outfile
 
 }
 
-class ReadFile {
-    + readLine(infile)
-    + addNameToArrayList(line)
+class CreateList{
+    + readFile(infile)
+    - addName(name, names)
 }
 
 class Parser {
-
-    + parseLine(ArrayList<String> list)
-
-
+    + tableData(names)
+    - splitLine(names, i)
 }
 
-class GenerateOutput {
-
-    + Print to outfile
-    + Print to console
-
+class Output {
+    + printTxt(outfile, outputData)
 }
 
 class GenerateTable {
-     + generateTable() // utilize header, divider, and table
-    + generateHeader()
-    + generateDivider()
-    + generateData();
+   + generateTable(employees)
+
+   + generateHeader()
+   + generateDivider()
+   + generateData()
 }
 
-Application o--> ReadFile
-ReadFile o-->Parser
-Parser o-> GenerateTable
-GenerateTable o-->GenerateOutput
+App o--> CreateList
+CreateList o->Parser
+Parser o--> GenerateTable
+GenerateTable o->Output
 
 @enduml

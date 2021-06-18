@@ -1,6 +1,6 @@
 /*
  *  UCF COP3330 Summer 2021 Assignment 3 Solution
- *  Copyright 2021 first_name last_name
+ *  Copyright 2021 Savannah Osburn
  */
 
 package oop.assignment3.ex42;
@@ -44,44 +44,27 @@ import java.util.HashMap;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        App myApp = new App();
         CreateList list = new CreateList();
         Parser parser = new Parser();
         GenerateTable outputTable = new GenerateTable();
         Output output = new Output();
 
+        // Declare variables
         String infile = "exercise42_input.txt";
         String outfile = "exercise42_output.txt";
 
-        ArrayList<String> names = new ArrayList<>();
-        ArrayList<HashMap<String, String>> employees = new ArrayList<>();
+        ArrayList<String> names;
+        ArrayList<HashMap<String, String>> employees;
 
+        // Get employees
         names = list.readFile(infile);
 
-        //System.out.print(names.get(0));
-
+        // Parse employees
         employees = parser.tableData(names);
 
+        // Generate table and output
         String table = outputTable.generateTable(employees);
-
         output.printTxt(outfile, table);
-
         System.out.print(table);
-
-
-
-        //System.out.print(employees.get(0).get("lastNames"));
-
-
-        // declare file name
-        // read from file
-            // catch errors
-
-        // add inputs to an array list
-        // parse each line at the commas
-
-        // create the table
-        // print to outfile
-        // print to console
     }
 }
