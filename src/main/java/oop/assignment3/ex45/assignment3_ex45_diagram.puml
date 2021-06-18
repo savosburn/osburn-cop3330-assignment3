@@ -1,3 +1,29 @@
 @startuml
+class Application{
+    String infile
+    ArrayList words
 
+}
+
+class WordFinder{
+    String word
+    ArrayList words
+
+    + readList()
+    + findWord(word, words)
+    + replaceWord(word, words)
+}
+
+class GenerateOutput{
+    String outfile
+    String outputString
+
+    + promptOutfile()
+    + createString(ArrayList)
+    + printConsole(output)
+    + printOutfile(output)
+}
+
+Application o--> WordFinder
+WordFinder o--> GenerateOutput
 @enduml
