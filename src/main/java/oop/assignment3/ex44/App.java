@@ -1,6 +1,6 @@
 /*
  *  UCF COP3330 Summer 2021 Assignment 3 Solution
- *  Copyright 2021 first_name last_name
+ *  Copyright 2021 Savannah Osburn
  */
 
 package oop.assignment3.ex44;
@@ -42,7 +42,27 @@ Use a JSON parser to pull the values out of the file
 If no record is found, prompt again.
  */
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 public class App {
+    private static final Scanner in = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        App myApp = new App();
+        Gson gson = new Gson();
+
+        JsonReader reader = new JsonReader();
+
+    }
+
+
     // get the name of the item
     // determine if it exists in the folder
         // if it exists
