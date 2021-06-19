@@ -1,16 +1,31 @@
 @startuml
-class Application{
-    String siteName;
-    String authorName;
+class App{
+    String website
+    String author
 
-    + javascriptFolder()
-    + cssFolder()
+    + readInput()
 }
 
 class CreateFile {
-    + generateHtmlFile(name, author)
-    + printOutput();
+    + userYesOrNo()
+    + generateNewFile(yesOrNo, name)
+
+    + createJavaScriptFile(name)
+    + createCSSFile(Name)
 }
 
-Application o->CreateFile
+class CreateLink {
+    + generateLink(name)
+}
+
+class GenerateOutput {
+    + output(outputString)
+
+    + createdHTMLFile(website, html)
+    + createdFolder(website, websiteType)
+}
+
+App <|-- CreateFile
+CreateFile <|-- CreateLink
+App o--> GenerateOutput
 @enduml
