@@ -19,20 +19,27 @@ public class CreateList {
 
         String addName;
 
+        // If the file path is valid
         try(Scanner input = new Scanner(Paths.get(infile))){
+
             // Read line by line
             while(input.hasNextLine()) {
+
+                // And add the line to the ArrayList
                 addName = input.nextLine();
                 list.addName(addName, names);
             }
         }
         catch (IOException e) {
+            // Otherwise, state that it's an invalid file
             System.out.print("Invalid file.");
         }
 
+        // Return the ArrayList
         return names;
     }
 
+    // Adds the string to the ArrayList
     private void addName(String name, ArrayList<String> names) {
         names.add(name);
     }

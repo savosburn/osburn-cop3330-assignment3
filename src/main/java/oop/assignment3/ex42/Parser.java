@@ -14,24 +14,31 @@ public class Parser {
     public ArrayList<HashMap<String, String>> tableData(ArrayList<String> names) {
         ArrayList<HashMap<String, String>> employees = new ArrayList<>();
 
-        // For every employee, parse their information and add to the arrayList
+        // For every employee
         for (int i = 0; i < names.size(); i++) {
             HashMap<String, String> entries = new HashMap<>();
+
+            // Parse their information
             String[] line = splitLine(names, i);
 
-                entries.put("lastNames", line[0]);
-                entries.put("firstNames", line[1]);
-                entries.put("salaries", line[2]);
+            // Add their information to the HashMap
+            entries.put("lastNames", line[0]);
+            entries.put("firstNames", line[1]);
+            entries.put("salaries", line[2]);
 
-                employees.add(entries);
+            // Add the employee to the ArrayList
+            employees.add(entries);
         }
 
+        // Return the ArrayList of employees
         return employees;
     }
 
     // Parse the strings at the comma
     private String[] splitLine(ArrayList<String> names, int i) {
         String line = names.get(i);
+
+        // Parse the strings at the comma
         String delims = ",";
 
         return line.split(delims);

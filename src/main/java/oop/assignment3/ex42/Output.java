@@ -10,12 +10,17 @@ import java.io.IOException;
 
 public class Output {
 
-    // Print to the outfile
     public void printTxt(String outFile, String outputData){
+
+        // If the file is valid
         try(FileWriter outfile = new FileWriter(outFile)) {
+
+            // Print ot the output file
             outfile.write(outputData);
         }
         catch (IOException e) {
+
+            // Otherwise, state that the file was invalid
             System.out.print("Invalid file name.");
         }
     }
