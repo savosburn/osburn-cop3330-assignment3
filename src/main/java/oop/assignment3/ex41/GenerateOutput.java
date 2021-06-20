@@ -11,13 +11,10 @@ import java.util.ArrayList;
 
 public class GenerateOutput {
 
-    public void toFile(ArrayList<String> nameList, String outFile, int num) throws IOException {
+    public void toFile(ArrayList<String> nameList, String outFile, int num){
         GenerateOutput output = new GenerateOutput();
 
-        // Open the output file, write to it, and then close it
-        FileWriter outfile = new FileWriter(outFile);
         output.writeToFile(outFile, num, nameList);
-        outfile.close();
     }
 
     private void writeToFile(String outfile, int num, ArrayList<String> nameList) {
@@ -28,9 +25,7 @@ public class GenerateOutput {
             outFile.write(output.numNames(num));
             outFile.write(output.divider());
             outFile.write(output.list(nameList));
-        }
-
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.print("Invalid file name.");
         }
     }
