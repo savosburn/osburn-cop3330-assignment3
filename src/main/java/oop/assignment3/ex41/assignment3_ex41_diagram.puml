@@ -23,7 +23,7 @@ class Calculations {
 
 class generateOutput {
     + toFile(ArrayList, outFile, int num)
-    + writeToFile(outfile, num, nameList) // helper for toFIle()
+    - writeToFile(outfile, num, nameList) // helper for toFIle()
     + consoleString(numNames, names)
 
     + numNames(names) // header
