@@ -22,7 +22,7 @@ public class FindFrequency {
         return freqArray;
     }
 
-    private int frequency(ArrayList<String> allWords, String findFreq) {
+    public int frequency(ArrayList<String> allWords, String findFreq) {
         int count = 0;
 
         // Loop through every word in the file and add to the count if a specific word is found
