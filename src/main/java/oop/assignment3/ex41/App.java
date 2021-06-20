@@ -5,7 +5,6 @@
 
 package oop.assignment3.ex41;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class App {
