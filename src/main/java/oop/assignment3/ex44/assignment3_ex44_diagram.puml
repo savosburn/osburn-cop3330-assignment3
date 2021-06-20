@@ -10,20 +10,12 @@ class App{
 
 class JSONParser{
     + jsonReader(productName)
-    + getProductPrice(productJsonObject)
-    + getProductQuantity(productJsonObject)
-    + ifEqual(productName, productJsonObject)
+    - getProductPrice(productJsonObject)
+    - getProductQuantity(productJsonObject)
+    - ifEqual(productName, productJsonObject)
     + notEqual()
 }
 
-class BuildParagraph {
-    BuildParagraph paragraph
-    ArrayList<String> names
+App <|-- JSONParser
 
-    + readFile(fileName)
-    + addWord(word, paragraph)
-}
-
-App o--> JSONParser
-JSONParser o--> BuildParagraph
 @enduml
