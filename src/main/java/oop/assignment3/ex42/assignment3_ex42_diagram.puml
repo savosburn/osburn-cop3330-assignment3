@@ -9,7 +9,6 @@ class App{
     // parse all the strings
     // generate output
         // print to outfile
-
 }
 
 class CreateList{
