@@ -29,6 +29,8 @@ public class BuildParagraph {
                 paragraph.addWord(addWord, names);
             }
         } catch (IOException e) {
+
+            // Otherwise, tell the user that the file was invalid
             System.out.print("Invalid input file.");
         }
 

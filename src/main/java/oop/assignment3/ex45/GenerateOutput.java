@@ -14,11 +14,14 @@ public class GenerateOutput {
     private static final Scanner in = new Scanner(System.in);
 
     public String createOutputString(ArrayList<String> paragraph) {
+
         // Assign the output to the first word in the paragraph
         String output = paragraph.get(0) + " ";
 
-        // For every word (other than the first) in the paragraph, add it to the output string
+        // For every word (other than the first) in the paragraph
         for (int i = 1; i < paragraph.size(); i++) {
+
+            // Add it to the output string
             output += paragraph.get(i) + " ";
         }
 
@@ -38,6 +41,8 @@ public class GenerateOutput {
             // Print to the outfile
             outFile.write(output);
         } catch (IOException e) {
+
+            // Otherwise, let the user know that the file was invalid
             System.out.print("Invalid outfile.");
         }
     }
