@@ -27,11 +27,14 @@ public class FindUniqueWords {
 
     // Determine if the next word has already been found in the string
     public boolean isUnique(String curWord, ArrayList<String> uniqueWords) {
+
+        //  Word already exists, so it's not unique
         for (String uniqueWord : uniqueWords) {
             if (uniqueWord.equals(curWord))
                 return false;
         }
 
+        // Word was not in the ArrayList, so it's unique
         return true;
     }
 }
