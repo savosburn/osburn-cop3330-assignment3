@@ -2,30 +2,39 @@
 class App{
     String website
     String author
+    String jsFolder
+    String cssFolder
+    String rootFolder
+    String htmlFOlder
 
     + readInput()
 }
 
 class CreateFile {
-    + userYesOrNo()
-    + generateNewFile(yesOrNo, name)
 
-    + createJavaScriptFile(name)
-    + createCSSFile(Name)
+    + generateFiles(rootFolder, websiteName, js, css)
+    + chooseFiles(rootFolder, websiteName, jsChoice, cssChoice)
+    + ifNull(returnString, temp)
+    + generateJsAndCSSFiles(rootFolder, website, name)
+    - fileCanBeCreated(file)
 }
 
-class CreateLink {
-    + generateLink(name)
+class CreateWebsiteFolder {
+    + folders(root, website)
+    + createRootFolder(rootFolder)
+    + createWebsiteFolder(rootFOlder, webName)
 }
 
-class GenerateOutput {
-    + output(outputString)
+class GenerateLink {
 
-    + createdHTMLFile(website, html)
-    + createdFolder(website, websiteType)
+    + createHTMLLink(rootFolder ,website, author, htmlFolder)
+    + createHtmlLink(author, website)
+    + generateHead(author, website)
+    + generateBody()
 }
 
-App <|-- CreateFile
-CreateFile <|-- CreateLink
-App o--> GenerateOutput
+App o--> CreateFile
+CreateFile o--> CreateWebsiteFolder
+CreateWebsiteFolder o-->GenerateLink
+
 @enduml
