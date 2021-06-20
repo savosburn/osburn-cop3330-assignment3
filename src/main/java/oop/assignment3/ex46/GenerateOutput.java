@@ -13,11 +13,11 @@ public class GenerateOutput {
         GenerateOutput genOut = new GenerateOutput();
 
         // Generate the first output data
-        String output = String.format("%-10s %s\n", unique.get(0) + ": ", genOut.generateStars(freqs[0]));
+        String output = String.format("%-9s %s\n", unique.get(0) + ": ", genOut.generateStars(freqs[0]));
 
         // Loop through the rest and add it to the output string
         for (int i = 1; i < unique.size(); i++) {
-            output += String.format("%-10s %s\n", unique.get(i) + ": ", genOut.generateStars(freqs[i]));
+            output += String.format("%-9s %s\n", unique.get(i) + ": ", genOut.generateStars(freqs[i]));
         }
 
         // Return the output
@@ -27,6 +27,10 @@ public class GenerateOutput {
     public String generateStars(int numStars) {
         String stars = null;
 
+        if (checkIfInvalid(numStars)) {
+            return "Invalid number of stars\n";
+        }
+
         // Add a star for each word as necessary
         for (int i = 0; i < numStars; i++) {
             stars = testNull(stars);
@@ -35,8 +39,12 @@ public class GenerateOutput {
         return stars;
     }
 
+    public boolean checkIfInvalid(int numStars) {
+        return (numStars < 0);
+    }
+
     // Determines if the string is null so that user can either set equal to or add to string
-    private String testNull(String stars) {
+    public String testNull(String stars) {
         if (stars == null) {
             stars = "*";
         }
