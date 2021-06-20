@@ -33,6 +33,7 @@ class FindFrequency {
 class GenerateOutput {
     + OutputString(unique, freqs)
     + generateStars(numStars)
+    + checkIfValid(numStars)
     + testNull(stars)
 }
 
