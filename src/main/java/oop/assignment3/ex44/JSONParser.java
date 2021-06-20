@@ -21,6 +21,7 @@ public class JSONParser {
 
             // process all products
             JsonArray jsonArrayOfProducts = fileObject.get("products").getAsJsonArray();
+
             for (JsonElement productElement : jsonArrayOfProducts) {
                 // Get the Json object:
                 JsonObject productJsonObject = productElement.getAsJsonObject();

@@ -12,18 +12,20 @@ import java.util.Scanner;
 
 public class CreateList {
 
-    // read input
+    // Read input
     public ArrayList<String>  readLine(String fileName){
         CreateList list = new CreateList();
         ArrayList<String> names = new ArrayList<>();
 
         String addName;
 
-        // Read from file
+        // If the file path is valid
         try(Scanner input = new Scanner(Paths.get(fileName))){
 
             // Read one line at a time
             while(input.hasNextLine()) {
+
+                // Add the line to the ArrayList
                 addName = input.nextLine();
                 list.addName(addName, names);
             }
@@ -33,6 +35,7 @@ public class CreateList {
             System.out.print("Invalid file name.");
         }
 
+        // Return the ArrayList of names
         return names;
     }
 

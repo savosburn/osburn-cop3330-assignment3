@@ -10,13 +10,13 @@ import java.util.Comparator;
 
 public class Calculations {
 
-    // Sort the names alphabetically by last name
+    // Sort the ArrayList of names in alphabetic order
     public ArrayList<String> alphabetize(ArrayList<String> names) {
         names.sort(Comparator.naturalOrder());
         return names;
     }
 
-    // Get the number of names to prevent hardcoding
+    // Determine how many names are in the ArrayList
     public int getSize(ArrayList<String> names) {
         return names.size();
     }
