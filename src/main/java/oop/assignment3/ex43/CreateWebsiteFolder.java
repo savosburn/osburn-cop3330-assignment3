@@ -23,8 +23,10 @@ public class CreateWebsiteFolder {
         File newFile = new File(rootFolder);
         boolean tOrF = newFile.mkdirs();
 
-        // Check to see if the folder could be created
+        // If the file could not be created
         if (!tOrF) {
+
+            // Let the user know
             System.out.print("Could not be created.\n");
         }
     }

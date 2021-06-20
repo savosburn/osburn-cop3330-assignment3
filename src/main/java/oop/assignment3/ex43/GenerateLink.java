@@ -13,7 +13,7 @@ public class GenerateLink {
     public String createHTMLLink(String rootFolder, String website, String author, String htmlFolder){
         String path = String.format("%s/%s/%s", rootFolder, website, htmlFolder);
 
-        // Make sure the file exists
+        // If the file exists
         try{
             File file = new File(path);
 
@@ -29,6 +29,8 @@ public class GenerateLink {
             // Return the output to the console
             return output;
         } catch(FileNotFoundException e) {
+
+            // Otherwise, inform the user that it is an invalid new file
             System.out.print("File not found.\n");
         }
 
