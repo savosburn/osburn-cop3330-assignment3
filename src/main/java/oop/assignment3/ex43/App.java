@@ -29,7 +29,6 @@ Created ./website/awesomeco/css/
 The user should then find these files and directories created in the working directory of your program.
  */
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -38,9 +37,7 @@ public class App {
 
     public static void main(String[] args) throws IOException {
         App myApp = new App();
-
-        String currentDirectory = System.getProperty("user.dir");
-        System.out.println("The current working directory is " + currentDirectory);
+        CreateFile file = new CreateFile();
 
         String website;
         String author;
@@ -50,47 +47,30 @@ public class App {
         String rootFolder = "website";
         String htmlFolder = "index.html";
 
+        // Scan in the user's choices
         website = myApp.readInput("Site name: ");
         author = myApp.readInput("Author: ");
 
         jsFolder = myApp.readInput("Do you want a folder for JavaScript? ");
         cssFolder = myApp.readInput("Do you want a folder for CSS? ");
 
+        // Create the website folder
         CreateWebsiteFolder createWebsiteFolder = new CreateWebsiteFolder();
         String output = createWebsiteFolder.folders(rootFolder, website);
 
-
+        // Create the HTML Link
         GenerateLink link = new GenerateLink();
         output += link.createHTMLLink(rootFolder, website, author, htmlFolder);
 
-       CreateFile file = new CreateFile();
 
-       output += file.generateFiles(rootFolder, website, jsFolder, cssFolder);
+        // Generate the JS and CSS folders if applicable
+        output += file.generateFiles(rootFolder, website, jsFolder, cssFolder);
 
-
-
+        // Print to the console
         System.out.print(output);
-
-       //file.generateJsAndCSSFiles(rootFolder,website, "js");
-       //file.generateJsAndCSSFiles(rootFolder,website, "css");
-
-
-
-        // prompt for website
-        // prompt for author
-        // ask if you want javascript folder
-        // ask if you want a css folder
-
-        // create a directory for the website
-            // create an html file in the directory
-                // generate html link to put in the directory
-            // create a folder called js
-            // create a folder called css
-
-        // print to console:
-            // each folder was created
     }
 
+    // Read in the user's input
     public String readInput(String prompt) {
         System.out.print(prompt);
 

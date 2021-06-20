@@ -1,7 +1,11 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 3 Solution
+ *  Copyright 2021 Savannah Osburn
+ */
+
 package oop.assignment3.ex43;
 
 import java.io.File;
-import java.nio.file.Files;
 
 public class CreateFile {
 
@@ -9,6 +13,7 @@ public class CreateFile {
     public String generateFiles(String rootFolder, String websiteName, String js, String css) {
         CreateFile file = new CreateFile();
 
+        // Return the output string
         String output = file.chooseFiles(rootFolder, websiteName, js, css);
 
         return output;
@@ -18,13 +23,24 @@ public class CreateFile {
     public String chooseFiles(String rootFolder, String websiteName, String jsChoice, String cssChoice) {
         CreateFile file = new CreateFile();
         String returnString = null;
-        if (jsChoice.toLowerCase().equals("y")) {
+
+        // If the user chose to have a JS file
+        if (jsChoice.equalsIgnoreCase("y")) {
+
+            // Generate the file
             String temp = file.generateJsAndCSSFiles(rootFolder, websiteName, "js");
-            returnString = ifNull(returnString, temp);
+
+            // Add its output to the return string
+            returnString = ifNull(null, temp);
         }
 
-        if (cssChoice.toLowerCase().equals("y")) {
+        // If the user chose to have a CSS file
+        if (cssChoice.equalsIgnoreCase("y")) {
+
+            // Generate the file
             String temp = file.generateJsAndCSSFiles(rootFolder, websiteName, "css");
+
+            // Add its output to the return string
             returnString = ifNull(returnString, temp);
         }
 
@@ -45,15 +61,22 @@ public class CreateFile {
 
     public String generateJsAndCSSFiles(String rootFolder, String website, String name) {
         String file = String.format("%s/%s/%s", rootFolder, website, name);
-        File newFile = new File(file);
-        boolean tOrF = newFile.mkdir();
+
+        boolean tOrF = fileCanBeCreated(file);
 
         if (tOrF) {
             return String.format("Created ./%s/%s/%s/\n", rootFolder, website, name);
         }
 
-        // FIX THIS
-        return null;
+
+        else {
+            return "File already exists.\n";
+        }
+    }
+
+    private boolean fileCanBeCreated(String file) {
+        File newFile = new File(file);
+        return newFile.mkdir();
     }
 
 }

@@ -1,14 +1,21 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 3 Solution
+ *  Copyright 2021 Savannah Osburn
+ */
+
 package oop.assignment3.ex43;
 
 import java.io.File;
 
 public class CreateWebsiteFolder {
 
-
     public String folders(String root, String web) {
         CreateWebsiteFolder folder = new CreateWebsiteFolder();
 
+        // Create the root folder
         folder.createRootFolder(root);
+
+        // Create the website folder
         return folder.createWebsiteFolder(root, web);
     }
 
@@ -16,9 +23,9 @@ public class CreateWebsiteFolder {
         File newFile = new File(rootFolder);
         boolean tOrF = newFile.mkdirs();
 
+        // Check to see if the folder could be created
         if (!tOrF) {
-            // FIX THIS
-            System.out.print("does not exist");
+            System.out.print("Could not be created.\n");
         }
     }
 
@@ -28,15 +35,14 @@ public class CreateWebsiteFolder {
 
         boolean tOrF = newFile.mkdirs();
 
+        // If the website folder could be created
         if (tOrF) {
+
+            // Return a string signifying that the website was created
             return String.format("Created ./%s/%s\n", rootFolder, webName);
-            //System.out.print("it's been created");
         }
 
-        // FIX THIS
-        return "cannot create file";
-
-
+        return "File could not be created.\n";
     }
 
 }
