@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class App {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         CreateList list = new CreateList();
         Calculations calculations = new Calculations();
         GenerateOutput output = new GenerateOutput();
