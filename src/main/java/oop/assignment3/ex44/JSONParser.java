@@ -52,27 +52,27 @@ public class JSONParser {
         return null;
     }
 
-    public Double getProductPrice(JsonObject productJsonObject) {
+    private Double getProductPrice(JsonObject productJsonObject) {
 
         // Determine the price
         return productJsonObject.get("price").getAsDouble();
     }
 
-    public Integer getProductQuantity(JsonObject productJsonObject) {
+    private Integer getProductQuantity(JsonObject productJsonObject) {
 
         // Determine the quantity
         return productJsonObject.get("quantity").getAsInt();
     }
 
 
-    public String ifEqual(String productName, JsonObject productJsonObject) {
+    private String ifEqual(String productName, JsonObject productJsonObject) {
         JSONParser jp = new JSONParser();
 
         // Output the name, price, and quantity if it was found in the json array
-        String output = String.format("Name: %s\n", productName);
+        String output = String.format("Name: %s \n", productName);
 
-        output += String.format("Price: %.2f\n", jp.getProductPrice(productJsonObject));
-        output += String.format("Quantity: %d", jp.getProductQuantity(productJsonObject));
+        output += String.format("Price: %.2f \n", jp.getProductPrice(productJsonObject));
+        output += String.format("Quantity: %d\n", jp.getProductQuantity(productJsonObject));
 
         return output;
     }
