@@ -26,6 +26,14 @@
       <version>5.7.2</version>
     </dependency>
 
+    <!-- Added -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>5.7.0</version>
+      <scope>test</scope>
+    </dependency>
+
     <!--  Gson: Java to Json conversion -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
