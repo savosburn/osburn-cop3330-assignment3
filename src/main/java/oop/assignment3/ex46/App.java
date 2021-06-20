@@ -1,6 +1,6 @@
 /*
  *  UCF COP3330 Summer 2021 Assignment 3 Solution
- *  Copyright 2021 first_name last_name
+ *  Copyright 2021 Savannah Osburn
  */
 
 
@@ -35,7 +35,6 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-        App myApp = new App();
         CreateList list = new CreateList();
         FindUniqueWords uniqueWords = new FindUniqueWords();
         FindFrequency freq = new FindFrequency();
@@ -43,26 +42,14 @@ public class App {
 
         String fileName = "exercise46_input.txt";
 
-        ArrayList<String> allWords = new ArrayList<>();
-        ArrayList<String> unique = new ArrayList<>();
+        // Read in all words, and then make a list of each different word
+        ArrayList<String> allWords = list.readFile(fileName);
+        ArrayList<String> unique = uniqueWords.uniqueWords(allWords);
 
-        allWords = list.readFile(fileName);
-
-        unique = uniqueWords.uniqueWords(allWords);
-
+        // Determine how often each word occurs
         Integer[] frequency = freq.findFrequency(allWords, unique);
 
-
+        // Print the output
         System.out.print(genOutput.outputString(unique, frequency));
-
-
-        // read file
-            // assing to arrayList
-        // determine if words are unique and add them to a unique arraylist
-        // create a frequency array
-        // read the frequency array
-        // create output
-
-
     }
 }

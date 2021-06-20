@@ -1,28 +1,44 @@
 @startuml
 
 class Application {
-    String infile
+    CreateList list
+    FindUniqueWords uniqueWords
+    FindFrequency freq
+    GenerateOutput genOutput
+
+    String fileName
+
+    ArrayList<String> allWords
+    ArrayList<String> unique
+    Integer[] frequency
 
 }
 
-class readInput {
-    + readFile(infile)
-    + create ArrayList()
+class CreateList{
+    + readFile(fileName)
+    + addToList(in, words)
 }
 
-class findFrequency {
-    + int[] freqArray
-
-    + uniqueWords(ArrayList)
-    + findFreq(uniqueWords, ArrayList)
+class FindUniqueWords {
+    + uniqueWords(allWords)
+    + isUnique(curWord, uniqueWords)
 }
 
-class displayOutput {
-    + createOutputString
-    + displayOutput
+class FindFrequency {
+    + findFrequency(allWords, uniqueWords)
+    + frequency(allWords, findFreq)
 }
 
-Application o--> readInput
-readInput o--> findFrequency
-findFrequency o--> displayOutput
+
+class GenerateOutput {
+    + OutputString(unique, freqs)
+    + generateStars(numStars)
+    + testNull(stars)
+}
+
+Application <|-- CreateList
+CreateList o-> FindUniqueWords
+CreateList o-> FindFrequency
+Application o-> GenerateOutput
+
 @enduml
