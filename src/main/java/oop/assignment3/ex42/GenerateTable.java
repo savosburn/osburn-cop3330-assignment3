@@ -29,13 +29,13 @@ public class GenerateTable {
 
     // Generate all data in table style
     public String generateData(ArrayList<HashMap<String, String>> employees) {
-        String output = String.format("%-10s%-10s%-10s\n", employees.get(0).get("lastNames"), employees.get(0).get("firstNames"), employees.get(0).get("salaries"));
+        String output = String.format("%-10s%-10s%s\n", employees.get(0).get("lastNames"), employees.get(0).get("firstNames"), employees.get(0).get("salaries"));
 
         // For every employee, add the information to the table
         for (int i = 1;i < employees.size(); i++) {
            output += String.format("%-10s", employees.get(i).get("lastNames"));
            output += String.format("%-10s", employees.get(i).get("firstNames"));
-           output += String.format("%-10s\n", employees.get(i).get("salaries"));
+           output += String.format("%s\n", employees.get(i).get("salaries"));
         }
 
         return output;
