@@ -39,15 +39,15 @@ public class App {
         WordFinder finder = new WordFinder();
         GenerateOutput output = new GenerateOutput();
 
+        // Supply user with the input file
         String infile = "exercise45_input.txt";
 
-        ArrayList<String> paragraph;
+        // Generate the paragraph with the modified words
+        ArrayList<String> paragraph = finder.modifyList(paragraphBuilder.readFile(infile));
 
-        paragraph = paragraphBuilder.readFile(infile);
-        paragraph = finder.modifyList(paragraph);
-
+        // Output the data to the outfile and the console
         String outfile = output.getOutfile();
-        output.toConsole(output.createOutputString(paragraph), outfile);
+        output.toOutfile(output.createOutputString(paragraph), outfile);
 
         System.out.print(output.createOutputString(paragraph));
     }

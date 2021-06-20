@@ -1,29 +1,41 @@
 @startuml
-class Application{
+class App{
     String infile
-    ArrayList words
+    String outfile
+    ArrayList<String> words
+}
 
+class BuildParagraph {
+    BuildParagraph paragraph
+    ArrayList<String> names
+    String addword
+
+    // Read in the data from the infile
+
+    + addWord(word, paragraph)
 }
 
 class WordFinder{
-    String word
-    ArrayList words
+    WordFinder finder
+    String master
+    String target = "utilize"
+    String replacement = "use"
 
-    + readList()
-    + findWord(word, words)
-    + replaceWord(word, words)
+    + modifyList(paragraph)
+    + utilizeToUse(paragraph, i)
 }
 
 class GenerateOutput{
-    String outfile
-    String outputString
+    String output
 
-    + promptOutfile()
-    + createString(ArrayList)
-    + printConsole(output)
-    + printOutfile(output)
+    + createOutputString(paragraph)
+    + getOutfile()
+    + toOutfile(output, outfile)
 }
 
-Application o--> WordFinder
-WordFinder o--> GenerateOutput
+App o--> BuildParagraph
+BuildParagraph -|> WordFinder
+WordFinder -> GenerateOutput
+App <|- GenerateOutput
+
 @enduml

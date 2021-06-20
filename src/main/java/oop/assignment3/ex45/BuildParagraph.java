@@ -14,26 +14,31 @@ public class BuildParagraph {
 
     public ArrayList<String> readFile(String infile) {
         BuildParagraph paragraph = new BuildParagraph();
-
         ArrayList<String> names = new ArrayList<>();
 
         String addWord;
 
+        // As long as the infile exists
         try(Scanner input = new Scanner(Paths.get(infile))) {
+
+            // And as long as the next input is a valid string
             while (input.hasNext()) {
 
+                // Add that word to the ArrayList of words
                 addWord = input.next();
                 paragraph.addWord(addWord, names);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.print("Invalid input file.");
         }
 
+        // Return the ArrayList of words
         return names;
     }
 
-
     public void addWord(String word, ArrayList<String> paragraph) {
+
+        // Add the word to the list of words
         paragraph.add(word);
     }
 }

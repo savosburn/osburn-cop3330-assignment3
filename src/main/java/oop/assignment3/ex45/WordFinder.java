@@ -12,7 +12,10 @@ public class WordFinder {
     public ArrayList<String> modifyList(ArrayList<String> paragraph) {
         WordFinder finder = new WordFinder();
 
+        // Check every word in the paragraph
         for (int i = 0; i < paragraph.size(); i++) {
+
+            // If the word contains "utilize", change it to "use"
             if (paragraph.get(i).contains("utilize")) {
                 finder.utilizeToUse(paragraph, i);
             }
@@ -26,8 +29,8 @@ public class WordFinder {
         String target = "utilize";
         String replacement = "use";
 
+        // Replace "utilize" with "use"
         String processed = master.replace(target, replacement);
-
         utilize.set(i, processed);
     }
 }
