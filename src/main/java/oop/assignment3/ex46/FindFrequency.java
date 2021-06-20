@@ -5,7 +5,6 @@
 
 package oop.assignment3.ex46;
 
-
 import java.util.ArrayList;
 
 public class FindFrequency {
@@ -14,8 +13,10 @@ public class FindFrequency {
         FindFrequency freq = new FindFrequency();
         Integer[] freqArray = new Integer[uniqueWords.size()];
 
-        // Loop through each index of the array to populate the frequency of the words
+        // For each index of the array
         for (int i = 0; i < uniqueWords.size(); i++) {
+
+            // Populate the frequency of the words
             freqArray[i] = freq.frequency(allWords, uniqueWords.get(i));
         }
 
@@ -25,9 +26,13 @@ public class FindFrequency {
     public int frequency(ArrayList<String> allWords, String findFreq) {
         int count = 0;
 
-        // Loop through every word in the file and add to the count if a specific word is found
+        // For every word in the file
         for (String allWord : allWords) {
+
+            // If the word in the ArrayList matches the current word being processed
             if (allWord.equals(findFreq)) {
+
+                // Add it to the frequency count
                 count++;
             }
         }

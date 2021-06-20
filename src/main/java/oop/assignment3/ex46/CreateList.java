@@ -15,13 +15,15 @@ public class CreateList {
         CreateList list = new CreateList();
         ArrayList <String> words = new ArrayList<>();
 
-        // Check if it's a real file
+        // If the file path is valid
         try(Scanner in = new Scanner(Paths.get(fileName))) {
 
-            // If the file is valid, add words from the file to the list
+            // Add words from the file to the list
             words = list.addToList(in, words);
 
         } catch(IOException e) {
+
+            // Otherwise, tell the user that it was invalid
             System.out.print("Not a valid file.");
         }
 
@@ -29,11 +31,13 @@ public class CreateList {
         return words;
     }
 
-    // Adds all words from the file into the list
     public ArrayList<String> addToList(Scanner in, ArrayList<String> words) {
         String addWord;
 
+        // While the next input is a valid string
         while (in.hasNext()) {
+
+            // Add it to the ArrayList of string
             addWord = in.next();
             words.add(addWord);
         }

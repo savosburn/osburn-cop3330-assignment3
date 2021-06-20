@@ -12,11 +12,13 @@ public class FindUniqueWords {
     public ArrayList<String> uniqueWords(ArrayList<String> allWords) {
         ArrayList<String> uniqueWords = new ArrayList<>();
 
-        // Loop through the list and isolate one of each word
+        // For each word
         for (String allWord : allWords) {
 
-            // Create an ArrayList of each of these words
+            // If the word has not already been included in the list
             if (isUnique(allWord, uniqueWords)) {
+
+                // Add it to the list
                 uniqueWords.add(allWord);
             }
         }
@@ -28,8 +30,10 @@ public class FindUniqueWords {
     // Determine if the next word has already been found in the string
     public boolean isUnique(String curWord, ArrayList<String> uniqueWords) {
 
-        //  Word already exists, so it's not unique
+        //  For every word in the unique words list
         for (String uniqueWord : uniqueWords) {
+
+            // Determine if the current word has already been found in the list
             if (uniqueWord.equals(curWord))
                 return false;
         }
