@@ -17,7 +17,7 @@ public class CreateList {
         CreateList list = new CreateList();
         ArrayList<String> names = new ArrayList<>();
 
-        String addName = " ";
+        String addName;
 
         // Read from file
         try(Scanner input = new Scanner(Paths.get(fileName))){
