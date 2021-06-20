@@ -49,6 +49,8 @@ import com.google.gson.stream.JsonReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class App {
@@ -57,9 +59,18 @@ public class App {
     public static void main(String[] args) throws IOException {
         App myApp = new App();
         Gson gson = new Gson();
+        JSONParser jParser = new JSONParser();
 
-        JsonReader reader = new JsonReader();
+        String productName = myApp.productName();
 
+       jParser.jsonReader(productName);
+
+    }
+
+    public String productName() {
+        System.out.print("What is the product name? ");
+
+        return in.nextLine();
     }
 
 
