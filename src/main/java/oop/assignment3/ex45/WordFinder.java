@@ -17,14 +17,14 @@ public class WordFinder {
 
             // If the word contains "utilize", change it to "use"
             if (paragraph.get(i).contains("utilize")) {
-                finder.utilizeToUse(paragraph, i);
+                String newString = finder.utilizeToUse(paragraph, i);
             }
         }
 
         return paragraph;
     }
 
-    private void utilizeToUse(ArrayList<String> utilize, int i) {
+    public String utilizeToUse(ArrayList<String> utilize, int i) {
         String master = utilize.get(i);
         String target = "utilize";
         String replacement = "use";
@@ -32,5 +32,7 @@ public class WordFinder {
         // Replace "utilize" with "use"
         String processed = master.replace(target, replacement);
         utilize.set(i, processed);
+
+        return utilize.set(i, processed);
     }
 }
