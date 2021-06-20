@@ -41,16 +41,7 @@ Use a JSON parser to pull the values out of the file
 
 If no record is found, prompt again.
  */
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonReader;
-
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class App {
@@ -58,27 +49,20 @@ public class App {
 
     public static void main(String[] args) throws IOException {
         App myApp = new App();
-        Gson gson = new Gson();
         JSONParser jParser = new JSONParser();
 
-        String productName = myApp.productName();
-
-       jParser.jsonReader(productName);
-
+        // Prompt user for input until the program finds a match
+        String outcome;
+        do {
+            String productName = myApp.productName();
+            outcome = jParser.jsonReader(productName);
+            System.out.print(outcome);
+        } while(outcome.equals(jParser.notEqual()));
     }
 
+    // Ask user for input
     public String productName() {
         System.out.print("What is the product name? ");
-
         return in.nextLine();
     }
-
-
-    // get the name of the item
-    // determine if it exists in the folder
-        // if it exists
-            // use a JSON parser to pull the values out of the file
-        // if it does NOT exist
-            // state that no product was found and start over
-    // print the name, price, and quantity
 }

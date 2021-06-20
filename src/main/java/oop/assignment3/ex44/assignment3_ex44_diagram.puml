@@ -1,3 +1,29 @@
 @startuml
+class App{
+    App myApp
+    JSONParser jParser
+    String outcome
+    String product name
 
+    + productName()
+}
+
+class JSONParser{
+    + jsonReader(productName)
+    + getProductPrice(productJsonObject)
+    + getProductQuantity(productJsonObject)
+    + ifEqual(productName, productJsonObject)
+    + notEqual()
+}
+
+class BuildParagraph {
+    BuildParagraph paragraph
+    ArrayList<String> names
+
+    + readFile(fileName)
+    + addWord(word, paragraph)
+}
+
+App o--> JSONParser
+JSONParser o--> BuildParagraph
 @enduml
