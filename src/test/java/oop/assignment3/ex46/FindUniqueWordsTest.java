@@ -62,5 +62,4 @@ class FindUniqueWordsTest {
 
         assertEquals(expectedList, words.uniqueWords(test.testLists()));
     }
-
 }
